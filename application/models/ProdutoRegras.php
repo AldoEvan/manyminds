@@ -4,6 +4,7 @@ class ProdutoRegras extends CI_Model {
 
     public function store($request)
     {   
+        var_dump($request);
         $formatPreco = str_replace(",", ".", $request['preco']);
         $preco = floatval($formatPreco);
         $formatMoeda = numfmt_create( 'pt_BR', NumberFormatter::CURRENCY );
@@ -12,10 +13,10 @@ class ProdutoRegras extends CI_Model {
 
         $produto = array(
             "nome" => $request['nome'],
-            "marca" => $request['fabricante'],
+            "fabricante" => $request['fabricante'],
             "modelo" => $request['modelo'],
             "preco" => $precoEmReal,
-            "quantidade" => $request['quantidadeProd'],
+            "quantidade" => $request['quantidade'],
             //"fk_colaborador" => "",
         );
 
@@ -48,5 +49,14 @@ class ProdutoRegras extends CI_Model {
         $deteled = array("deleted_at" => date("Y-m-d H:i:s"));
         $this->db->where("produto.id", $id);
         $this->db->update("produto", $deteled);
+    }
+
+    public function consultaItem($id)
+    {
+        $this->db->select('id, nome, fabricante, preco');
+        $this->db->from('produto');   
+        $this->db->where("produto.id", $id);
+        $produto = $this->db->get()->row_array();
+        return $produto;
     }
 }

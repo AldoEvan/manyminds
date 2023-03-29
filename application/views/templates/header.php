@@ -23,6 +23,12 @@
             </li>
             <?php if (isset($_SESSION['logado'])) : ?>
                 <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/produtos/consulta">Consulta Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/pedido/consulta">Consulta Pedidos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="http://localhost/login/logout">Logout</a>
                 </li>
             <?php else : ?>

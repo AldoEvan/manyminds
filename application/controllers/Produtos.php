@@ -24,6 +24,7 @@ class Produtos extends CI_Controller {
 
 	public function store()
 	{
+		var_dump($_POST);
 		$request = $_POST;
 		$this->load->model('ProdutoRegras');
 		$this->ProdutoRegras->store($request);
@@ -63,6 +64,15 @@ class Produtos extends CI_Controller {
 		$this->load->model('ProdutoRegras');
 		$this->ProdutoRegras->delete($id);
 		redirect('http://localhost/produtos/consulta');
+	}
+
+	public function consultaitem($id)
+	{
+		$this->load->model("ProdutoRegras");
+		$item = $this->ProdutoRegras->consultaItem($id);
+		//var_dump($item);
+		echo json_encode($item);
+	
 	}
 
 

@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-6">
             <label for="preço" class="form-label">Preço</label>
-            <input type="text" inputmode="numeric" name="preco" value="<?= isset($produto) ? $produto['preco'] : null ?>" class="form-control" id="preço">
+            <input type="text" inputmode="numeric" name="preco" value="<?= isset($produto) ? $produto['preco'] : null ?>" class="form-control" id="preco">
         </div>
         <div class="col-md-6">
             <label for="quantidade" class="form-label">Quantidade</label>
